@@ -1,4 +1,4 @@
-name: Toilet Fan Off Scheduler
+name: Action Executor
 
 on:
   schedule:
