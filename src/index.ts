@@ -64,6 +64,9 @@ async function main() {
 
   const switchbotApiUrl = `https://api.switch-bot.com/v1.1/devices/${SWITCHBOT_BOT_TOILET_FAN_DEVICE_ID}/commands`;
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 15000);
+
   const switchbotResponse = await fetch(switchbotApiUrl, {
     method: 'POST',
     headers: {
@@ -78,7 +81,10 @@ async function main() {
       parameter: 'default',
       commandType: 'command',
     }),
+    signal: controller.signal,
   });
+
+  clearTimeout(timeoutId);
 
   const responseJson = await switchbotResponse.json();
 
