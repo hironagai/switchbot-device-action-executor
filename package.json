@@ -1,0 +1,22 @@
+{
+  "name": "switchbot-device-action-executor",
+  "version": "1.0.0",
+  "description": "Executes device actions from a queue for SwitchBot devices.",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --no-warnings=ExperimentalWarning dist/index.js",
+    "build": "tsc -p .",
+    "prestart": "npm run build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
+    "dotenv": "^16.5.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.11.20",
+    "@types/uuid": "^9.0.8"
+  }
+}
